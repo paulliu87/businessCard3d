@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Designer Magazine - AR.js Tutorial</title>
+    <script src='js/three.js'></script>
+    <script src='js/ColladaLoader.js'></script>
+    <script src='vendor/jsartoolkit5/build/artoolkit.min.js'></script>
+    <script src='vendor/jsartoolkit5/js/artoolkit.api.js'></script>
+    <script src='threex-artoolkitsource.js'></script>
+    <script src='threex-artoolkitcontent.js'></script>
+    <script src="threex-armarkercontrols.js"></script>
+	<script>THREEx.ArToolkitContext.baseURL = '/'</script>
+	<style>
+		body {
+		  margin: 0px;
+		  overflow: hidden;
+		}
+		canvas {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var renderer, scene, camera;
+		var arToolkitContext, onRenderFcts, arToolkitSource, markerRoot, artoolkitMarker, lastTimeMsec;
+		var model, tube1, tube2, mid, details, pulse;
+		var loader = new THREE.ColladaLoader();
+
+		loader.load('model/scene.dae', function(collada) {
+			model = collada.scene;
+			model.scale.x = model.scale.y = model.scale.z = 0.1;
+			details = model.getObjectByName("details", true);
+		}
+	</script>
+
+</body>
+
+</html>
