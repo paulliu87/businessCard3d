@@ -38,6 +38,13 @@
 			model.scale.x = model.scale.y = model.scale.z = 0.1;
 			details = model.getObjectByName("details", true);
 		}
+
+		tube1 = model.getObjectByName("tube1", true);
+		var a = tube1.children[0].material;
+		a.transparent = true;
+		a.side = THREE["BackSide"];
+		a.blending = THREE["AdditiveBlending"];
+		a.opacity = 0.9;
 	</script>
 
 </body>
