@@ -37,14 +37,36 @@
 			model = collada.scene;
 			model.scale.x = model.scale.y = model.scale.z = 0.1;
 			details = model.getObjectByName("details", true);
-		}
+		
+			tube1 = model.getObjectByName("tube1", true);
+			var a = tube1.children[0].material;
+			a.transparent = true;
+			a.side = THREE["BackSide"];
+			a.blending = THREE["AdditiveBlending"];
+			a.opacity = 0.9;
 
-		tube1 = model.getObjectByName("tube1", true);
-		var a = tube1.children[0].material;
-		a.transparent = true;
-		a.side = THREE["BackSide"];
-		a.blending = THREE["AdditiveBlending"];
-		a.opacity = 0.9;
+			tube2 = model.getObjectByName("tube2", true);
+			c = tube2.children[0].material;
+			c.transparent = true;
+			c.side = THREE["backSide"];
+			c.blending = THREE["AdditiveBlending"];
+			c.opacity = 0.9;
+
+			mid = model.getObjectByName("mid", true);
+			b = mid.children[0].material;
+			b.transparent = true;
+			b.blending = THREE["AdditiveBlending"];
+			b.opacity = 0.9;
+			init();
+		});
+
+		function init() {
+		  renderer = new THREE.WebGLRenderer({
+		  alpha: true
+		  });
+	  renderer.setClearColor(new THREE.Color('lightgrey'), 0);
+	  renderer.setSize(window.innerWidth, window.innerHeight);
+	  document.body.appendChild(renderer.domElement);
 	</script>
 
 </body>
